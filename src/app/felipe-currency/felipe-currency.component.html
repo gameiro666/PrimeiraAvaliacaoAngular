@@ -1,0 +1,30 @@
+<h1>
+  Histórico de Cotações
+</h1>
+
+<table border="1">
+  <tr>
+    <th>USD</th>
+    <th>EUR</th>
+    <th>BITCOIN</th>
+  </tr>
+  <tr *ngFor="let rate of this.wallet.bitCoinRates; index as i">
+
+    <td>
+      <span [innerHTML]="rate.bpi.USD.symbol"></span>
+      {{
+        ( this.wallet.brlRates[i].bpi.BRL.rate_float / rate.bpi.USD.rate_float ).toFixed(3)
+      }}</td>      
+    <td>
+      <span [innerHTML]="rate.bpi.EUR.symbol"></span>
+      {{
+        ( this.wallet.brlRates[i].bpi.BRL.rate_float / rate.bpi.EUR.rate_float ).toFixed(3)
+      }}
+    </td>
+    <td>
+      {{
+        this.wallet.brlRates[i].bpi.BRL.rate_float.toFixed(3)
+      }}
+    </td>
+  </tr>
+</table>
